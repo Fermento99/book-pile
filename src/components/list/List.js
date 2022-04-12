@@ -1,12 +1,21 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
 import ListElement from './ListElement';
 
-function List({items}) {
-  // console.log(items);
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 2em 5%; 
+  justify-content: space-evenly;
+`;
+
+function List({ items }) {
+  console.log(items);
 
   return (
-    <div>{items.map((item, index) => <ListElement data={item} key={index} />)}</div>
-  )
+    <Row>{items.map((item, index) => <ListElement data={item} key={index} />)}</Row>
+  );
 }
 
-export default List
+export default List;

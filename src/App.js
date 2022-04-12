@@ -8,12 +8,11 @@ function App() {
   const [loading, setLoaded] = useState(false);
 
   const search = (q) => {
-    if (q) {
-      setQuery(q);
-      setLoaded(false);
-      getBooks({ q }).then(data => setLoaded(data));
-    }
-  }
+    setQuery(q);
+    setLoaded(false);
+    getBooks(q).then(data => setLoaded(data));
+
+  };
 
   return (
     <div>

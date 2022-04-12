@@ -1,26 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Description = styled.p`
-  text-overflow: ellipsis;
-  overflow: hidden;
-  display: -webkit-box !important;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  white-space: normal;
+const ElementContainer = styled.div`
   width: 40%;
-  height: 3em;
+  min-width: 300px;
+  text-align: center;
+  margin: 1.5em;
+  padding: 2em;
+  border: 2px #000 solid;
+  border-radius: 8px;
+
+  > img {
+    max-width: 128px;
+  }
 `;
 
 
 function ListElement({ data }) {
-  console.log(data);
+  // console.log(data);
+
   return (
-    <div>
-      <img src={data.volumeInfo.imageLinks?.thumbnail} alt={`${data.volumeInfo.title} cover`} />
+    <ElementContainer>
+      <img src={data.volumeInfo.imageLinks?.thumbnail} alt={'book\'s cover'} />
       <h2>{data.volumeInfo.title}</h2>
-      <Description>{data.volumeInfo.description}</Description>
-    </div>
+      <p>{data.volumeInfo.description && data.volumeInfo.description?.length > 100 ? data.volumeInfo.description?.substring(0, 100) + '...' : data.volumeInfo.description}</p>
+    </ElementContainer>
   );
 }
 
