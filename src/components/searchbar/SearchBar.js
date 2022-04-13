@@ -30,6 +30,11 @@ const Button = styled.button`
   border: solid 3px #000;
   background-color: transparent;
   font-weight: bolder;
+
+  :hover {
+    color: #fff;
+    background-color: #000;
+  }
 `;
 
 const BarContainer = styled.div`
@@ -72,6 +77,7 @@ function SearchBar({ callback }) {
       afterDate: publishedDateSelectionRef.current.value
     };
 
+    // return query object if 'intitle' or 'inauthor' is specified
     if (params.intitle || params.inauthor) callback(params);
   };
 

@@ -13,17 +13,30 @@ const ElementContainer = styled.div`
   > img {
     max-width: 128px;
   }
+
+  >h2 {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `;
 
 
 function ListElement({ data }) {
-  // console.log(data);
+  let description = ''
+
+  // make ellipsis if descrition is too long (if exists)
+  if (data.volumeInfo.description) {
+    description = data.volumeInfo.description.length > 100 
+      ? data.volumeInfo.description?.substring(0, 100) + '...' 
+      : data.volumeInfo.description;
+  }
 
   return (
     <ElementContainer>
       <img src={data.volumeInfo.imageLinks?.thumbnail} alt={'book\'s cover'} />
       <h2>{data.volumeInfo.title}</h2>
-      <p>{data.volumeInfo.description && data.volumeInfo.description?.length > 100 ? data.volumeInfo.description?.substring(0, 100) + '...' : data.volumeInfo.description}</p>
+      <p>{description}</p>
     </ElementContainer>
   );
 }

@@ -11,8 +11,6 @@ const Row = styled.div`
 `;
 
 function List({ items }) {
-  console.log(items);
-
   return (
     <Row>{items.map((item, index) => <ListElement data={item} key={index} />)}</Row>
   );

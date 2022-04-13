@@ -1,11 +1,18 @@
 
 const API_URL = 'https://www.googleapis.com/books/v1/volumes';
 
-const getBooks = async (query) => {
-
+/**
+ * Function sends book requests
+ * @param {object} query object specifying search filters
+ * @param {integer} startIndex number specifying first returned element
+ * @returns filtered book list
+ */
+const getBooks = async (query, startIndex) => {
   let url = API_URL + '?q=';
   if (query.intitle) url += '+intitle:' + query.intitle;
   if (query.inauthor) url += '+inauthor:' + query.inauthor;
+  
+  url += '&startIndex=' + startIndex;
 
   return await fetch(url)
     .then(res => {
@@ -13,6 +20,7 @@ const getBooks = async (query) => {
       return res.json();
     })
     .then(data => {
+      data.unfilteredItems = data.items.length;
       if (query.publishedDate) {
         data.items = data.items.filter(item => query.afterDate === 'true' 
             ? Date.parse(item.volumeInfo.publishedDate) >= Date.parse(query.publishedDate)
