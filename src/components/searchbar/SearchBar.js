@@ -85,15 +85,15 @@ function SearchBar({ callback }) {
     <div>
       <div>
         <label htmlFor='title' >Title:</label>
-        <Input name='title' type='text' placeholder='Animal Farm: A Fairy Story' ref={titleRef} />
+        <Input id='title' type='text' placeholder='Animal Farm: A Fairy Story' ref={titleRef} />
       </div>
       <div>
         <label htmlFor='author'>Author:</label>
-        <Input name='author' type='text' placeholder='Geroge Orwell' ref={authorRef} />
+        <Input id='author' type='text' placeholder='Geroge Orwell' ref={authorRef} />
       </div>
       <div>
         <label htmlFor='language'>Language:</label>
-        <Input name='language' type='text' placeholder='en' width="3em" ref={languageRef} />
+        <Input id='language' type='text' placeholder='en' width="3em" ref={languageRef} />
       </div>
       <div>
         <label htmlFor='publishedDate'>Published Date:</label>
@@ -101,7 +101,7 @@ function SearchBar({ callback }) {
           <option value='true'>after</option>
           <option value='false'>before</option>
         </Select>
-        <Input name='publishedDate' type='date' ref={publishedDateRef} />
+        <Input id='publishedDate' type='date' ref={publishedDateRef} data-testid="date-picker"/>
       </div>
     </div>
     <Button onClick={() => handleClick()}>SEARCH</Button>
