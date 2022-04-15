@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/book-pile/static/css/main.cd3feef4.css",
+    "main.js": "/book-pile/static/js/main.19e39844.js",
+    "index.html": "/book-pile/index.html",
+    "main.cd3feef4.css.map": "/book-pile/static/css/main.cd3feef4.css.map",
+    "main.19e39844.js.map": "/book-pile/static/js/main.19e39844.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cd3feef4.css",
+    "static/js/main.19e39844.js"
+  ]
+}
