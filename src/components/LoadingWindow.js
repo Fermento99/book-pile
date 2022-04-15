@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 const Window = styled.div`
   position: fixed;
@@ -21,7 +21,7 @@ const Window = styled.div`
 function LoadingWindow() {
   return (
     <Window><h1>Loading...</h1></Window>
-  )
+  );
 }
 
-export default LoadingWindow
+export default LoadingWindow;

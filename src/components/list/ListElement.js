@@ -23,12 +23,12 @@ const ElementContainer = styled.div`
 
 
 function ListElement({ data }) {
-  let description = ''
+  let description = '';
 
   // make ellipsis if descrition is too long (if exists)
   if (data.volumeInfo.description) {
-    description = data.volumeInfo.description.length > 100 
-      ? data.volumeInfo.description?.substring(0, 100) + '...' 
+    description = data.volumeInfo.description.length > 100
+      ? data.volumeInfo.description?.substring(0, 100) + '...'
       : data.volumeInfo.description;
   }
 

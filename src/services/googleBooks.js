@@ -12,10 +12,10 @@ const getBooks = async (query, startIndex) => {
   let url = API_URL + '?q=';
   if (query.intitle) url += '+intitle:' + encodeURIComponent(query.intitle);
   if (query.inauthor) url += '+inauthor:' + encodeURIComponent(query.inauthor);
-  
+
   // add pagination 
   url += '&startIndex=' + startIndex;
-  
+
   // get data
   return await fetch(url)
     .then(res => {
@@ -25,9 +25,9 @@ const getBooks = async (query, startIndex) => {
     .then(data => {
       data.unfilteredItems = data.items.length;
       if (query.publishedDate) {
-        data.items = data.items.filter(item => query.afterDate === 'true' 
-            ? Date.parse(item.volumeInfo.publishedDate) >= Date.parse(query.publishedDate)
-            : Date.parse(item.volumeInfo.publishedDate) <= Date.parse(query.publishedDate)
+        data.items = data.items.filter(item => query.afterDate === 'true'
+          ? Date.parse(item.volumeInfo.publishedDate) >= Date.parse(query.publishedDate)
+          : Date.parse(item.volumeInfo.publishedDate) <= Date.parse(query.publishedDate)
         );
       }
 

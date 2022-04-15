@@ -101,7 +101,7 @@ function SearchBar({ callback }) {
           <option value='true'>after</option>
           <option value='false'>before</option>
         </Select>
-        <Input id='publishedDate' type='date' ref={publishedDateRef} data-testid="date-picker"/>
+        <Input id='publishedDate' type='date' ref={publishedDateRef} data-testid="date-picker" />
       </div>
     </div>
     <Button onClick={() => handleClick()}>SEARCH</Button>

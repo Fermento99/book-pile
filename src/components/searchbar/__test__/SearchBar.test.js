@@ -33,9 +33,9 @@ describe('SearchBar', () => {
     fireEvent.change(languageInput, { target: { value: 'en' } });
     fireEvent.change(dateInput, { target: { value: '2015-12-10' } });
     fireEvent.change(afterInput, { target: { value: 'false' } });
-    fireEvent.click(button)
+    fireEvent.click(button);
 
-    expect(callback).toBeCalledWith({ afterDate: 'false', inauthor: 'Orson Scott Card', intitle: 'Ender\'s game', lang: 'en', publishedDate: '2015-12-10'})
+    expect(callback).toBeCalledWith({ afterDate: 'false', inauthor: 'Orson Scott Card', intitle: 'Ender\'s game', lang: 'en', publishedDate: '2015-12-10' });
   });
 
   test('returns correct query object with less fields', () => {
@@ -45,8 +45,8 @@ describe('SearchBar', () => {
     const button = screen.getByText(/search/i);
 
     fireEvent.change(titleInput, { target: { value: 'Ender\'s game' } });
-    fireEvent.click(button)
+    fireEvent.click(button);
 
-    expect(callback).toBeCalledWith({ afterDate: 'true', inauthor: '', intitle: 'Ender\'s game', lang: '', publishedDate: ''})
+    expect(callback).toBeCalledWith({ afterDate: 'true', inauthor: '', intitle: 'Ender\'s game', lang: '', publishedDate: '' });
   });
 });

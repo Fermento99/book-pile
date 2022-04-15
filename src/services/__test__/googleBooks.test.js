@@ -30,7 +30,7 @@ describe('googleBooks', () => {
     expect(res).toStrictEqual({ ...mockResponseData, unfilteredItems: 8 });
   });
 
-  test('calls API with correct author', async() => {
+  test('calls API with correct author', async () => {
     fetch.once(req => req.url === 'https://www.googleapis.com/books/v1/volumes?q=+inauthor:Orson%20Scott%20Card&startIndex=0'
       ? Promise.resolve().then(res => JSON.stringify(mockResponseData))
       : Promise.reject(new Error('bad url: ' + req.url)));
@@ -44,7 +44,7 @@ describe('googleBooks', () => {
     expect(res).toStrictEqual({ ...mockResponseData, unfilteredItems: 8 });
   });
 
-  test('calls API with correct title and author', async() => {
+  test('calls API with correct title and author', async () => {
     fetch.once(req => req.url === 'https://www.googleapis.com/books/v1/volumes?q=+intitle:Ender%27s%20game+inauthor:Orson%20Scott%20Card&startIndex=0'
       ? Promise.resolve().then(res => JSON.stringify(mockResponseData))
       : Promise.reject(new Error('bad url: ' + req.url)));
@@ -58,7 +58,7 @@ describe('googleBooks', () => {
     expect(res).toStrictEqual({ ...mockResponseData, unfilteredItems: 8 });
   });
 
-  test('filters Api response by date (after)', async() => {
+  test('filters Api response by date (after)', async () => {
     fetch.once(req => req.url === 'https://www.googleapis.com/books/v1/volumes?q=+intitle:Ender%27s%20game+inauthor:Orson%20Scott%20Card&startIndex=0'
       ? Promise.resolve().then(res => JSON.stringify(mockResponseData))
       : Promise.reject(new Error('bad url: ' + req.url)));
@@ -72,7 +72,7 @@ describe('googleBooks', () => {
     expect(res.items.length).toBe(3);
   });
 
-  test('filters Api response by date (before)', async() => {
+  test('filters Api response by date (before)', async () => {
     fetch.once(req => req.url === 'https://www.googleapis.com/books/v1/volumes?q=+intitle:Ender%27s%20game+inauthor:Orson%20Scott%20Card&startIndex=0'
       ? Promise.resolve().then(res => JSON.stringify(mockResponseData))
       : Promise.reject(new Error('bad url: ' + req.url)));
@@ -86,7 +86,7 @@ describe('googleBooks', () => {
     expect(res.items.length).toBe(5);
   });
 
-  test('filters Api response by lang', async() => {
+  test('filters Api response by lang', async () => {
     fetch.once(req => req.url === 'https://www.googleapis.com/books/v1/volumes?q=+intitle:Ender%27s%20game+inauthor:Orson%20Scott%20Card&startIndex=0'
       ? Promise.resolve().then(res => JSON.stringify(mockResponseData))
       : Promise.reject(new Error('bad url: ' + req.url)));
