@@ -10,12 +10,12 @@ const API_URL = 'https://www.googleapis.com/books/v1/volumes';
 const getBooks = async (query, startIndex) => {
   // add API filters 
   let url = API_URL + '?q=';
-  if (query.intitle) url += '+intitle:' + query.intitle;
-  if (query.inauthor) url += '+inauthor:' + query.inauthor;
+  if (query.intitle) url += '+intitle:' + encodeURIComponent(query.intitle);
+  if (query.inauthor) url += '+inauthor:' + encodeURIComponent(query.inauthor);
   
   // add pagination 
   url += '&startIndex=' + startIndex;
-
+  
   // get data
   return await fetch(url)
     .then(res => {

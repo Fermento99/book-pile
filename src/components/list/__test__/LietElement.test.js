@@ -24,9 +24,9 @@ const data2 = {
 
 describe('ListElement', () => {
   test('displays img from url', () => {
-    // render(<ListElement data={data1} />)
-    // const img = screen.getByAltText('book\'s cover');
-    // expect(img).toHaveAttribute('src', data1.volumeInfo.imageLinks.thumbnail)
+    render(<ListElement data={data1} />)
+    const img = screen.getByAltText('book\'s cover');
+    expect(img).toHaveAttribute('src', data1.volumeInfo.imageLinks.thumbnail)
   });
 
   test('displays book title', () => {
